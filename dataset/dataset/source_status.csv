@@ -1,0 +1,13 @@
+﻿source,type,status,url,note
+Hass avocado 2024,primary observation,download blocked,https://data.mendeley.com/datasets/3xd9n945v8/1,"478 fruits; need original Excel metadata, not images; CC BY 4.0"
+Strawberry 2015,condition summary,7 conditions transcribed; 2 conflict,https://www.zhilengxuebao.com/zh/article/doi/10.3969/j.issn.0253-4339.2015.05.037/,not individual fruits; check full text before use
+FDA raw fruits poster,nutrition reference,12 rows transcribed,https://www.fda.gov/food/nutrition-food-labeling-and-critical-foods/raw-fruits-poster-text-version-accessible-version,published serving sizes and vitamin C %DV; not mg
+UNL home storage,storage reference,10 food/group rows transcribed,https://food.unl.edu/free-resource/food-storage/,not independent experimental observations
+USDA FoodKeeper,storage reference,download blocked,https://catalog.data.gov/dataset/fsis-foodkeeper-data,"XLS or JSON; optional, CC0"
+Korea national food nutrition,nutrition reference,download not obtained,https://www.data.go.kr/data/15100064/standard.do,optional replacement for FDA
+Mandarin 2025,study candidate,abstract only,https://reference-global.com/article/10.2478/ahr-2025-0011,variety and treatment differ; full table needed
+Apple household waste 2025,modelled study,abstract inspected,https://eprints.whiterose.ac.uk/id/eprint/222285/,simulation results not individual observations
+Kiwi study,study candidate,403,https://www.sciencedirect.com/science/article/abs/pii/S0925521425000407,not extracted
+Banana study,study candidate,403,https://www.tandfonline.com/doi/full/10.1080/15538362.2013.748378,not extracted
+Blueberry study,study candidate,403,https://www.tandfonline.com/doi/full/10.1080/15538362.2013.801724,not extracted
+Shelf-life MATLAB,software,not downloaded,https://data.mendeley.com/datasets/kphtgxn3ff/4,not confirmed raw observation; not needed now

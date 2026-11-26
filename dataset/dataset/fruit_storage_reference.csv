@@ -1,0 +1,11 @@
+﻿fruit_or_group,room_min_days,room_max_days,refrigerator_min_days,refrigerator_max_days,condition_note,data_type,source_url
+apple,21,21,28,42,room 50–70 F; refrigerator <=40 F,household_reference_not_training,https://food.unl.edu/free-resource/food-storage/
+avocado,,,3,4,room until ripe; refrigerator guidance,household_reference_not_training,https://food.unl.edu/free-resource/food-storage/
+banana,,,3,3,room until ripe; refrigerator guidance,household_reference_not_training,https://food.unl.edu/free-resource/food-storage/
+blueberry,,,7,14,room not recommended,household_reference_not_training,https://food.unl.edu/free-resource/food-storage/
+citrus_group,10,10,10,21,"group includes oranges, grapefruit, clementines",household_reference_not_training,https://food.unl.edu/free-resource/food-storage/
+grape,1,1,7,7,,household_reference_not_training,https://food.unl.edu/free-resource/food-storage/
+peach_nectarine_plum_pear_group,1,2,3,5,room duration only AFTER ripe; group guidance,household_reference_not_training,https://food.unl.edu/free-resource/food-storage/
+strawberry,,,2,3,room not recommended,household_reference_not_training,https://food.unl.edu/free-resource/food-storage/
+pineapple,1,2,5,7,room duration only AFTER ripe,household_reference_not_training,https://food.unl.edu/free-resource/food-storage/
+melon_group,,,14,14,room until ripe; refrigerated whole uncut,household_reference_not_training,https://food.unl.edu/free-resource/food-storage/

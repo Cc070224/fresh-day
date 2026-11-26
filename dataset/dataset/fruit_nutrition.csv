@@ -1,0 +1,13 @@
+﻿fruit,name_zh,name_ko,edible_serving_g,kcal_per_serving,potassium_mg_per_serving,fiber_g_per_serving,sugar_g_per_serving,protein_g_per_serving,vitamin_c_pct_DV_per_serving_as_published,source_url
+apple,苹果,사과,242,130,260,5,25,1,8,https://www.fda.gov/food/nutrition-food-labeling-and-critical-foods/raw-fruits-poster-text-version-accessible-version
+avocado,牛油果,아보카도,30,50,140,1,0,1,4,https://www.fda.gov/food/nutrition-food-labeling-and-critical-foods/raw-fruits-poster-text-version-accessible-version
+banana,香蕉,바나나,126,110,450,3,19,1,15,https://www.fda.gov/food/nutrition-food-labeling-and-critical-foods/raw-fruits-poster-text-version-accessible-version
+grape,葡萄,포도,126,90,240,1,20,0,2,https://www.fda.gov/food/nutrition-food-labeling-and-critical-foods/raw-fruits-poster-text-version-accessible-version
+kiwi,猕猴桃,키위,148,90,450,4,13,1,240,https://www.fda.gov/food/nutrition-food-labeling-and-critical-foods/raw-fruits-poster-text-version-accessible-version
+orange,橙子,오렌지,154,80,250,3,14,1,130,https://www.fda.gov/food/nutrition-food-labeling-and-critical-foods/raw-fruits-poster-text-version-accessible-version
+peach,桃子,복숭아,147,60,230,2,13,1,15,https://www.fda.gov/food/nutrition-food-labeling-and-critical-foods/raw-fruits-poster-text-version-accessible-version
+pear,梨,배,166,100,190,6,16,1,10,https://www.fda.gov/food/nutrition-food-labeling-and-critical-foods/raw-fruits-poster-text-version-accessible-version
+plum,李子,자두,151,70,230,2,16,1,10,https://www.fda.gov/food/nutrition-food-labeling-and-critical-foods/raw-fruits-poster-text-version-accessible-version
+strawberry,草莓,딸기,147,50,170,2,8,1,160,https://www.fda.gov/food/nutrition-food-labeling-and-critical-foods/raw-fruits-poster-text-version-accessible-version
+sweet_cherry,甜樱桃,체리,140,100,350,1,16,1,15,https://www.fda.gov/food/nutrition-food-labeling-and-critical-foods/raw-fruits-poster-text-version-accessible-version
+tangerine,柑橘,감귤,109,50,160,2,9,1,45,https://www.fda.gov/food/nutrition-food-labeling-and-critical-foods/raw-fruits-poster-text-version-accessible-version
