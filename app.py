@@ -279,12 +279,108 @@ def feature_two():
     show_daily_plan(remaining_quantity, remaining_days)
 
 
+def read_positive_number(prompt):
+    while True:
+        try:
+            value = float(input(prompt).strip())
+        except ValueError:
+            print("0보다 큰 숫자를 입력해 주세요.")
+            continue
+        if pd.notna(value) and value > 0 and value != float("inf"):
+            return value
+        print("0보다 큰 숫자를 입력해 주세요.")
+
+
+def feature_three():
+    nutrition = pd.read_csv("dataset/dataset/fruit_nutrition.csv")
+    required_columns = ["fruit", "name_ko", "edible_serving_g"]
+    missing_columns = [column for column in required_columns if column not in nutrition.columns]
+    if missing_columns:
+        raise ValueError(f"영양 자료에 필요한 열이 없습니다: {missing_columns}")
+
+    fruit_options = nutrition["fruit"].dropna().tolist()
+    fruit_labels = dict(zip(nutrition["fruit"], nutrition["name_ko"]))
+    nutrient_labels = {
+        "kcal_per_serving": ("열량", "kcal"),
+        "sugar_g_per_serving": ("당류", "g"),
+        "vitamin_c_pct_DV_per_serving_as_published": ("비타민 C (하루 기준치)", "%"),
+        "fiber_g_per_serving": ("식이섬유", "g"),
+        "potassium_mg_per_serving": ("칼륨", "mg"),
+        "protein_g_per_serving": ("단백질", "g"),
+    }
+    totals = {column: 0.0 for column in nutrient_labels}
+    total_counts = {column: 0 for column in nutrient_labels}
+    fruit_count = 0
+
+    print("\n과일 영양 분석은 CSV의 1회 제공량 기준으로 계산합니다.")
+    print("실제 과일 한 개의 무게 자료가 없어, 수량은 기준 제공량 횟수로 입력합니다.")
+    print("무게는 껍질과 씨 등을 제외한 식용 부분의 무게로 입력해 주세요.")
+    print("비타민 C는 자료에 공개된 하루 기준치(%)이며 mg 단위가 아닙니다.")
+
+    while True:
+        print("\n먹은 과일을 선택하세요:")
+        fruit = choose_option(fruit_options, fruit_labels)
+        row = nutrition[nutrition["fruit"] == fruit].iloc[0]
+        fruit_name = fruit_labels.get(fruit, fruit)
+        if pd.isna(fruit_name):
+            fruit_name = fruit
+        if pd.isna(row["edible_serving_g"]) or float(row["edible_serving_g"]) <= 0:
+            raise ValueError(f"{fruit_name}의 1회 제공량 자료가 없어 계산할 수 없습니다.")
+        serving_grams = float(row["edible_serving_g"])
+
+        amount_mode = choose_option(
+            ["servings", "grams"],
+            {
+                "servings": f"기준 제공량 횟수 (1회 = {serving_grams:g}g)",
+                "grams": "식용 부분의 무게 (g)",
+            },
+        )
+        if amount_mode == "servings":
+            amount = read_positive_number("먹은 기준 제공량 횟수를 입력하세요: ")
+            scale = amount
+            eaten_grams = amount * serving_grams
+        else:
+            eaten_grams = read_positive_number("먹은 식용 부분 무게를 입력하세요 (g): ")
+            scale = eaten_grams / serving_grams
+
+        print(f"\n{fruit_name} 입력량: 약 {eaten_grams:.1f}g")
+        print("입력량 기준 주요 영양 특징:")
+        fruit_count += 1
+        for column, (label, unit) in nutrient_labels.items():
+            if column in nutrition.columns and pd.notna(row[column]):
+                value = float(row[column]) * scale
+                totals[column] += value
+                total_counts[column] += 1
+                print(f"- {label}: {value:.1f} {unit}")
+
+        if "source_url" in nutrition.columns and pd.notna(row.get("source_url")):
+            print("영양 정보 출처:", row["source_url"])
+
+        add_another = choose_option(
+            [True, False],
+            {True: "예, 다른 과일도 입력", False: "아니요, 합계 보기"},
+        )
+        if not add_another:
+            break
+
+    print("\n=== 이번 섭취의 영양 합계 ===")
+    displayed_total = False
+    for column, (label, unit) in nutrient_labels.items():
+        if total_counts[column] == fruit_count:
+            print(f"- {label}: {totals[column]:.1f} {unit}")
+            displayed_total = True
+    if not displayed_total:
+        print("모든 입력 과일에 공통으로 제공된 영양 합계가 없습니다.")
+    print("자료에 없는 영양 항목은 추정하지 않았습니다.")
+
+
 def main():
-    menu_options = [1, 2, 3]
+    menu_options = [1, 2, 3, 4]
     menu_labels = {
         1: "아보카도 남은 보관 기간 예측",
         2: "과일 섭취 계획 및 보관 관리",
-        3: "종료",
+        3: "과일 영양 분석",
+        4: "종료",
     }
     while True:
         print("\n=== Fresh Day ===")
@@ -293,6 +389,8 @@ def main():
             feature_one()
         elif choice == 2:
             feature_two()
+        elif choice == 3:
+            feature_three()
         else:
             print("프로그램을 종료합니다.")
             break
